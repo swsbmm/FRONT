@@ -1,7 +1,6 @@
 import React from 'react';
-import { render} from 'react-dom';
-import { HashRouter, Route } from 'react-router-dom'
-import { } from 'react-router';
+import { render, HashRouter } from 'react-dom';
+import { Router, Route } from 'react-router';
 import MetisMenu from 'react-metismenu';
 import RouterLink from 'react-metismenu-router-link';
 
@@ -50,13 +49,14 @@ const App = (props) => (
   </div>
 );
 
-render((
-    <HashRouter path="/" component={App}>
-          <Route path="menu-1" component={Menu1} />
-          <Route path="menu-2" component={Menu2} />
-          <Route path="sub-menu" component={SubMenu} />     
-    </HashRouter>
-    )
-    ,
-  document.getElementById('root'));
+render(
+  <HashRouter >
+    <Route path="/" component={App}>
+      <Route path="menu-1" component={Menu1} />
+      <Route path="menu-2" component={Menu2} />
+      <Route path="sub-menu" component={SubMenu} />
+    </Route>
+  </HashRouter>,
+  document.getElementById('root')
+);
 
